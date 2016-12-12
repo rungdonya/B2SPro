@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find Book</title>
+</head>
+<body>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+<style>
+    body, html {
+        height: 100%;
+        font-family: "Inconsolata", sans-serif;
+    }
+    .bgimg {
+        background-position: center;
+        background-size: cover;
+        background-image: url("/w3images/coffeehouse.jpg");
+        min-height: 75%;
+    }
+    .menu {
+        display: none;
+    }
+
+    #search{
+        background-position:center;
+    }
+</style>
+<body>
+
+<!-- Links (sit on top) -->
+<div class="w3-top">
+    <div class="w3-row w3-padding w3-black">
+        <div class="w3-col s3">
+            <a href="#" class="w3-btn-block w3-hover-white">HOME</a>
+        </div>
+        <div class="w3-col s3">
+            <a href="#about" class="w3-btn-block w3-hover-white">ABOUT</a>
+        </div>
+        <div class="w3-col s3">
+            <a href="#menu" class="w3-btn-block w3-hover-white">MENU</a>
+        </div>
+        <div class="w3-col s3">
+            <a href="#where" class="w3-btn-block w3-hover-white">WHERE</a>
+        </div>
+    </div>
+</div>
+
+
+<!-- Header with image -->
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+    <div class="w3-display-bottomleft w3-center w3-padding-xlarge w3-hide-small">
+        <span class="w3-tag">Open from 6am to 5pm</span>
+    </div>
+    <div class="w3-display-middle w3-center">
+        <span class="w3-text-white" style="font-size:90px">the<br>Cafe</span>
+    </div>
+    <div class="w3-display-bottomright w3-center w3-padding-xlarge">
+        <span class="w3-text-white">15 Adr street, 5015</span>
+    </div>
+</header>
+
+<!-- Add a background color and large text to the whole page -->
+<div class="w3-sand w3-grayscale w3-large">
+
+    <!-- Contact/Area Container -->
+    <div class="w3-container" id="searchBook" style="padding-bottom:32px;">
+        <div class="w3-content" style="max-width:700px">
+            <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide w3-padding-left w3-padding-right">BOOK SEARCH</span></h5>
+
+                <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Book Name" required name="Book Name" id="bname"></p>
+                <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Author" required name="Author" id="author"></p>
+                <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Publisher" required name="Publisher" id="pub"></p>
+                <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Genre" required name="genre" id="gen"></p>
+                <p class="w3-center">
+                    <button class="w3-btn  w3-center w3-padding" id="search">SEARCH</button>
+                </p>
+     
+        </div>
+    </div>
+
+    <div class="w3-container" id="bookInfo" style="padding-bottom:32px;">
+        <div class="w3-content" style="max-width:700px">
+            <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide w3-padding-left w3-padding-right">BOOK SEARCH</span></h5>
+
+            <p class="w3-center" id="info"></p>
+            <p class="w3-center">
+                <button class="w3-btn  w3-center w3-padding" id="srch">SEARCH MORE</button>
+            </p>
+
+        </div>
+    </div>
+
+    <!-- End page content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-light-grey w3-padding-48 w3-large">
+    <p>Powered by <a href="http://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+</footer>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+    var temp;
+    $('#bookInfo').hide();
+
+    $('#search').click(function(){
+        temp={
+            BookName : $('#bname').val(),
+            Author : $('#author').val(),
+            Publisher : $('#pub').val(),
+            Genre : $('#gen').val()
+        }
+        console.log(Object.values(temp));
+        if(temp.BookName== ""){
+            temp.BookName = 'null';
+        }else if(temp.Author==""){
+            temp.Author = 'null';
+        }
+
+        $.get('/search/'+temp.BookName+"&&"+temp.Author, function(data, status){
+
+        });
+
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "http://localhost:3000/search/"+temp.BookName+"&&"+temp.Author,
+            "method": "GET",
+            "headers": {
+                "cache-control": "no-cache",
+                "postman-token": "07f249db-c2e2-f534-2b8e-96e347a91520"
+            }
+        }
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+            var book = response.bookinfo;
+            if(response.status!=0){
+               alert("Not found");
+            }else{
+                $('#searchBook').hide();
+                $('#bookInfo').show();
+
+                $('#info').html("Book Name : "+ book.bookName +'<br>'+"Author : "+ book.author
+                        +'<br>'+ "Publisher : "+ book.Publisher +'<br>'+"Genre : "+ book.genre +'<br>'
+                        +"Stock : "+book.stock +'<br>'+"Location : "+ book.location  +'<br>'
+                        +"Price : "+ book.price);
+            }
+        });
+    });
+
+    $('#srch').click(function(){
+        $('#bookInfo').hide();
+        $("#bname").val("");$("#author").val("");
+        $("#pub").val("");$("#gen").val("");
+        $('#searchBook').show();
+
+    });
+</script>
+
+</body>
+</body>
+</html>
