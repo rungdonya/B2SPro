@@ -35,16 +35,16 @@
 <div class="w3-top">
     <div class="w3-row w3-padding w3-black">
         <div class="w3-col" style="width:25%">
-            <a href="directory.html" class="w3-btn-block w3-hover-white">HOME</a>
+            <a href="home.html" class="w3-btn-block w3-hover-white">HOME</a>
         </div>
         <div class="w3-col" style="width:25%" onclick="w3_open1()">
-            <a id="events" class="w3-btn-block w3-hover-white" >EVENT</a>
+            <a href="events.html" class="w3-btn-block w3-hover-white" >EVENT</a>
         </div>
         <div class="w3-col" style="width:25%">
             <a class="w3-btn-block w3-hover-white">FIND A BOOK</a>
         </div>
         <div class="w3-col" style="width:25%">
-            <a id="plans" class="w3-btn-block w3-hover-white">PLAN TO VISIT</a>
+            <a href="directory.html" class="w3-btn-block w3-hover-white">PLAN TO VISIT</a>
         </div>
     </div>
 </div>
@@ -58,8 +58,6 @@
 
     </div>
 </header>
-
-<div id="includedContent1"></div>
 
 <!-- Add a background color and large text to the whole page -->
 <div class="w3-sand w3-grayscale w3-large">
@@ -103,7 +101,6 @@
 <script>
     var temp;
     $('#bookInfo').hide();
-    $('#includedContent1').hide();
 
     $('#search').click(function(){
         temp={
@@ -159,14 +156,8 @@
 
     });
 
-    //include content from directory
-    $(function(){
-        $('#includedContent1').load("directory.html");
-    });
-
 
 </script>
-<script src="directory.js"></script>
 </body>
 </body>
 </html>
