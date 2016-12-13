@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({
 app.use(express.static(__dirname+'/'));
 
 app.get('/',function (req,res) {
-    res.sendFile(__dirname +'/FindBook.html');
+    res.sendFile(__dirname +'/directory.html');
 })
 
 app.get('/search/:BookName&&:Author', function (req,res) {
