@@ -16,8 +16,9 @@
     .bgimg {
         background-position: center;
         background-size: cover;
-        background-image: url("/w3images/coffeehouse.jpg");
-        min-height: 75%;
+        background-image: url("photo.jpg");
+        min-height: 70%;
+        margin-top: 50px;
     }
     .menu {
         display: none;
@@ -32,32 +33,29 @@
 <!-- Links (sit on top) -->
 <div class="w3-top">
     <div class="w3-row w3-padding w3-black">
-        <div class="w3-col s3">
-            <a href="#" class="w3-btn-block w3-hover-white">HOME</a>
+        <div class="w3-col" style="width:25%">
+            <a href="directory.html" class="w3-btn-block w3-hover-white">HOME</a>
         </div>
-        <div class="w3-col s3">
-            <a href="#about" class="w3-btn-block w3-hover-white">ABOUT</a>
+        <div class="w3-col" style="width:25%" onclick="w3_open1()">
+            <a id="event" href="directory.html" class="w3-btn-block w3-hover-white" >EVENT</a>
         </div>
-        <div class="w3-col s3">
-            <a href="#menu" class="w3-btn-block w3-hover-white">MENU</a>
+        <div class="w3-col" style="width:25%">
+            <a class="w3-btn-block w3-hover-white">FIND A BOOK</a>
         </div>
-        <div class="w3-col s3">
-            <a href="#where" class="w3-btn-block w3-hover-white">WHERE</a>
+        <div class="w3-col" style="width:25%">
+            <a id="plan" class="w3-btn-block w3-hover-white">PLAN TO VISIT</a>
         </div>
     </div>
 </div>
 
 
 <!-- Header with image -->
-<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+<header class="bgimg w3-display-container w3-grayscale-min" id="h">
     <div class="w3-display-bottomleft w3-center w3-padding-xlarge w3-hide-small">
-        <span class="w3-tag">Open from 6am to 5pm</span>
+        <span class="w3-tag">Open from 10am to 10pm</span>
     </div>
     <div class="w3-display-middle w3-center">
-        <span class="w3-text-white" style="font-size:90px">the<br>Cafe</span>
-    </div>
-    <div class="w3-display-bottomright w3-center w3-padding-xlarge">
-        <span class="w3-text-white">15 Adr street, 5015</span>
+
     </div>
 </header>
 
@@ -157,6 +155,15 @@
         $('#searchBook').show();
 
     });
+
+    $('#event').click(function(){
+        $(".tammy").hide();
+        $(".mySidenav").show();
+        $(".pop").show();
+        $(".prw").hide();
+    })
+
+
 </script>
 
 </body>
