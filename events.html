@@ -274,13 +274,14 @@
         </ul>
     </div>
 
+
     <!-- Modal for full size images on click-->
     <div id="modal01" class="w3-modal w3-black w3-padding-0" onclick="this.style.display='none'">
         <span class="w3-closebtn w3-text-white w3-opacity w3-hover-opacity-off w3-xxlarge w3-container w3-display-topright">×</span>
         <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
             <img id="img01" class="w3-image">
             <p id="caption"></p>
-            <button class="w3-btn w3-light-grey w3-padding-large w3-margin-top w3-margin-bottom w3-hover-black">MORE DETAILS</button>
+            <button class="w3-btn w3-light-grey w3-padding-large w3-margin-top w3-margin-bottom w3-hover-black"  onclick="window.open('https://www.surveymonkey.com/r/CLWMGDS','_blank')">BUY NOW</button>
         </div>
     </div>
 
@@ -297,7 +298,6 @@
             <p>TICKET RESERVATION</p>
             <p>TEL: 1112</p>
             <hr class="w3-opacity">
-            <h4 class="w3-padding-16">DETAILS</h4>
             <p class="w3-wide">AVAILABLE SEATS</p>
             <div class="w3-progress-container">
                 <div class="w3-progressbar" style="width:95%"></div>
@@ -306,7 +306,7 @@
             <div class="w3-progress-container">
                 <div class="w3-progressbar" style="width:100%"></div>
             </div>
-            <button class="w3-btn w3-light-grey w3-padding-large w3-margin-top w3-margin-bottom w3-hover-black">MORE DETAILS</button>
+            <button class="w3-btn w3-light-grey w3-padding-large w3-margin-top w3-margin-bottom w3-hover-black"  onclick="window.open('https://www.surveymonkey.com/r/CLWMGDS','_blank')">BUY NOW</button>
             <hr class="w3-opacity">
 
             <h4 class="w3-padding-16">TICKET PRICE</h4>
@@ -323,7 +323,7 @@
                             <span class="w3-opacity">BAHT</span>
                         </li>
                         <li class="w3-light-grey w3-padding-24">
-                            <button class="w3-btn w3-white w3-padding-large w3-hover-black">BUY NOW</button>
+                            <button class="w3-btn w3-white w3-padding-large w3-hover-black"  onclick="window.open('https://www.surveymonkey.com/r/CLWMGDS','_blank')" >BUY NOW</button>
                         </li>
                     </ul>
                 </div>
@@ -340,7 +340,7 @@
                             <span class="w3-opacity">Baht</span>
                         </li>
                         <li class="w3-light-grey w3-padding-24">
-                            <button class="w3-btn w3-white w3-padding-large w3-hover-black">BUY NOW</button>
+                            <button class="w3-btn w3-white w3-padding-large w3-hover-black" onclick="window.open('https://www.surveymonkey.com/r/CLWMGDS','_blank')">BUY NOW</button>
                         </li>
                     </ul>
                 </div>
@@ -353,14 +353,7 @@
         <div class="w3-content" style="max-width:600px">
             <h4 class="w3-center"><b>PROMOTIONS</b></h4>
             <p>No promotions available. Let us contact you as soon as we have one!</p>
-
-            <div class="w3-group">
-                <label>Email</label>
-                <label>
-                    <input class="w3-input w3-border" type="text" name="Email" required>
-                </label>
-            </div>
-            <button type="submit" class="w3-btn-block w3-padding-large w3-black w3-margin-bottom">SUBMIT</button>
+            <script>(function(t,e,o,n){var s,c,i;t.SMCX=t.SMCX||[],e.getElementById(n)||(s=e.getElementsByTagName(o),c=s[s.length-1],i=e.createElement(o),i.type="text/javascript",i.async=!0,i.id=n,i.src=["https:"===location.protocol?"https://":"http://","widget.surveymonkey.com/collect/website/js/i8wVlw5kg4G4JYf64lOKPWCWyfjuBGTMFJxTirolJfXQgxV2tgW0Q7G9t9MbKdt5.js"].join(""),c.parentNode.insertBefore(i,c))})(window,document,"script","smcx-sdk");</script>
 
         </div>
     </div>
@@ -377,12 +370,6 @@
 
 <script>
 
-    var i =1;
-
-
-    function add() {
-        i=i+1;
-    }
     document.getElementById("month").innerHTML = "DECEMBER";
 
     function w3_open1() {
