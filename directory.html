@@ -297,6 +297,10 @@
         letter-spacing: 3px;
     }
 
+    #search{
+        background-position:center;
+    }
+
     /* Add media queries for smaller screens */
     @media screen and (max-width:720px) {
         .weekdays li, .days li {width: 13.1%;}
@@ -605,7 +609,34 @@
 </div>
 
 <!--sairung-->
-<div id="includedContent3"></div>
+<div id="includedContent3">
+    <div class="w3-container" id="searchBook" style="padding-bottom:32px;">
+        <div class="w3-content" style="max-width:700px">
+            <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide w3-padding-left w3-padding-right">BOOK SEARCH</span></h5>
+
+            <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Book Name" required name="Book Name" id="bname"></p>
+            <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Author" required name="Author" id="author"></p>
+            <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Publisher" required name="Publisher" id="pub"></p>
+            <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Genre" required name="genre" id="gen"></p>
+            <p class="w3-center">
+                <button class="w3-btn  w3-center w3-padding" id="search">SEARCH</button>
+            </p>
+
+        </div>
+    </div>
+
+    <div class="w3-container" id="bookInfo" style="padding-bottom:32px;">
+        <div class="w3-content" style="max-width:700px">
+            <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide w3-padding-left w3-padding-right">BOOK SEARCH</span></h5>
+
+            <p class="w3-center" id="info"></p>
+            <p class="w3-center">
+                <button class="w3-btn  w3-center w3-padding" id="srch">SEARCH MORE</button>
+            </p>
+
+        </div>
+    </div>
+</div>
 
 
 <!--prw-->
@@ -727,6 +758,7 @@
         $(".prw").hide();
         $(".timepage").hide();
         $(".mySidenav").hide();
+        $('#bookInfo').hide();
     });
 
     $("#homepage").click(function(){
@@ -802,5 +834,62 @@
         var captionText = document.getElementById("caption");
         captionText.innerHTML = element.alt;
     }
+
+    var temp;
+
+
+    $('#search').click(function(){
+        temp={
+            BookName : $('#bname').val(),
+            Author : $('#author').val(),
+            Publisher : $('#pub').val(),
+            Genre : $('#gen').val()
+        }
+        console.log(Object.values(temp));
+        if(temp.BookName== ""){
+            temp.BookName = 'null';
+        }else if(temp.Author==""){
+            temp.Author = 'null';
+        }
+
+        $.get('/search/'+temp.BookName+"&&"+temp.Author, function(data, status){
+
+        });
+
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "http://localhost:3000/search/"+temp.BookName+"&&"+temp.Author,
+            "method": "GET",
+            "headers": {
+                "cache-control": "no-cache",
+                "postman-token": "07f249db-c2e2-f534-2b8e-96e347a91520"
+            }
+        }
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+            var book = response.bookinfo;
+            if(response.status!=0){
+                alert("Not found");
+            }else{
+                $('#searchBook').hide();
+                $('#bookInfo').show();
+
+                $('#info').html("Book Name : "+ book.bookName +'<br>'+"Author : "+ book.author
+                        +'<br>'+ "Publisher : "+ book.Publisher +'<br>'+"Genre : "+ book.genre +'<br>'
+                        +"Stock : "+book.stock +'<br>'+"Location : "+ book.location  +'<br>'
+                        +"Price : "+ book.price);
+            }
+        });
+    });
+
+    $('#srch').click(function(){
+        $('#bookInfo').hide();
+        $("#bname").val("");$("#author").val("");
+        $("#pub").val("");$("#gen").val("");
+        $('#searchBook').show();
+
+    });
 
 </script>
