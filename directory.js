@@ -16,13 +16,37 @@ $("#homepage").click(function(){
 });
 
 $("#event").click(function(){
+        $(".tammy").hide();
+        $(".mySidenav").show();
+        $(".pop").show();
+        $(".prw").hide();
+    }
+);
+
+$('#events').click(function(){
+    $('#searchBook').hide();
+    $("#includedContent1").show();
+    $("#h").hide();
     $(".tammy").hide();
     $(".mySidenav").show();
     $(".pop").show();
     $(".prw").hide();
 });
 
+
 $("#plan").click(function(){
+    $(".tammy").hide();
+    $(".mySidenav").hide();
+    $(".pop").hide();
+    $(".prw").show();
+    $(".accordion").show();
+    $(".locationpage").hide();
+});
+
+$('#plans').click(function(){
+    $('#searchBook').hide();
+    $("#includedContent1").show();
+    $("#h").hide();
     $(".tammy").hide();
     $(".mySidenav").hide();
     $(".pop").hide();
