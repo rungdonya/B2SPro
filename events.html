@@ -13,6 +13,18 @@
     ul {list-style-type: none;}
     body {font-family: Verdana,sans-serif;}
 
+    body, html {
+        height: 100%;
+        font-family: "Inconsolata", sans-serif;
+    }
+    .bgimg {
+        background-position: center;
+        background-size: cover;
+        background-image: url("photo.jpg");
+        min-height: 70%;
+        margin-top: 50px;
+    }
+
     a.hovertext {
         position: relative;
         width: 200px;
@@ -156,7 +168,7 @@
     <div class="w3-row w3-padding w3-black">
 
         <div class="w3-col" style="width:25%">
-            <a id="home.html" class="w3-btn-block w3-hover-white">HOME</a>
+            <a href="home.html" class="w3-btn-block w3-hover-white">HOME</a>
         </div>
         <div class="w3-col" style="width:25%" onclick="w3_open1()">
             <a href="events.html" class="w3-btn-block w3-hover-white" >EVENT</a>
@@ -165,12 +177,19 @@
             <a href="FindBook.html" class="w3-btn-block w3-hover-white">FIND A BOOK</a>
         </div>
         <div class="w3-col" style="width:25%">
-            <a id="directory.html" class="w3-btn-block w3-hover-white">PLAN TO VISIT</a>
+            <a href="directory.html" class="w3-btn-block w3-hover-white">PLAN TO VISIT</a>
         </div>
     </div>
 </div>
 
+<header class="bgimg w3-display-container w3-grayscale-min" id="head">
+    <div class="w3-display-bottomleft w3-center w3-padding-xlarge w3-hide-small">
+        <span class="w3-tag">Open from 10am to 10pm</span>
+    </div>
+    <div class="w3-display-middle w3-center">
 
+    </div>
+</header>
 
 
 <!-- !PAGE CONTENT! -->
