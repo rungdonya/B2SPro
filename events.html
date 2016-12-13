@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<style>
+    body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+    .w3-third img{margin-bottom:-6px;opacity:0.8;cursor:pointer}
+    .w3-third img:hover{opacity:1}
+    * {box-sizing:border-box;}
+    ul {list-style-type: none;}
+    body {font-family: Verdana,sans-serif;}
+
+    a.hovertext {
+        position: relative;
+        width: 200px;
+        text-decoration: none !important;
+        text-align: center;
+    }
+    a.hovertext:after {
+        content: attr(title);
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        padding: 0.5em 20px;
+        width: 200px;
+        background: rgba(0,0,0,0.8);
+        text-decoration: none !important;
+        color: #fff;
+        opacity: 0;
+        -webkit-transition: 0.5s;
+        -moz-transition: 0.5s;
+        -o-transition: 0.5s;
+        -ms-transition: 0.5s;
+    }
+    a.hovertext:hover:after, a.hovertext:focus:after {
+        opacity: 1.0;
+    }
+
+    .month {
+        padding: 70px 25px;
+        width: 100%;
+        background: #676865;
+    }
+
+    .month ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    .month ul li {
+        color: white;
+        font-size: 20px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+    }
+
+    /* Add media queries for smaller screens */
+    @media screen and (max-width:720px) {
+        .weekdays li, .days li {width: 13.1%;}
+    }
+
+    @media screen and (max-width: 420px) {
+        .weekdays li, .days li {width: 12.5%;}
+        .days li .active {padding: 2px;}
+    }
+
+    @media screen and (max-width: 290px) {
+        .weekdays li, .days li {width: 12.2%;}
+    }
+</style>
+<body class="w3-light-grey w3-content" style="max-width:1600px">
+
+
+<nav class="w3-sidenav w3-white w3-card-2 w3-animate-left w3-center w3-text-grey w3-top" style="z-index:3;width:300px;font-weight:bold" id="mySidenav"><br>
+    <a href="javascript:void(0)" onclick="w3_close1()"
+       class="w3-closenav">Close Menu</a>
+    <div class="month">
+        <ul>
+            <li style="text-align:center" id="month">
+            </li>
+            <span style="font-size:18px">2016</span>
+        </ul>
+    </div>
+    <!--
+         <ul class="weekdays">
+             <li>Sun</li>
+             <li>Mon</li>
+             <li>Tue</li>
+             <li>Wed</li>
+             <li>Thu</li>
+             <li>Fri</li>
+             <li>Sat</li>
+         </ul>
+
+
+         <ul class="days" onclick="onClick(this)">
+             <a>27</a>
+             <a>28</a>
+             <a>29</a>
+             <a>30</a>
+             <li id="1">1</li>
+             <li id="2">2</li>
+             <li id="3"><span class="active">3</span></li>
+             <li id="4">4</li>
+             <li id="5">5</li>
+             <li id="6">6</li>
+             <li id="7">7</li>
+             <li id="8">8</li>
+             <li id="9">9</li>
+             <li id="10"><span class="tag">10</span></li>
+             <li id="11"><span class="tag">11</span></li>
+             <li id="12"><span class="tag">12</span></li>
+             <li id="13">13</li>
+             <li id="14">14</li>
+             <li id="15"><span class="tag">15</span></li>
+             <li id="16">16</li>
+             <li id="17">17</li>
+             <li id="18">18</li>
+             <li id="19"><span class="tag">19</span></li>
+             <li id="20">20</li>
+             <li id="21">21</li>
+             <li id="22">22</li>
+             <li id="23">23</li>
+             <li id="24">24</li>
+             <li id="25">25</li>
+             <li id="26">26</li>
+             <li id="27">27</li>
+             <li id="28">28</li>
+             <li id="29">29</li>
+             <li id="30">30</li>
+             <li id="31">31</li>
+         </ul>
+         -->
+    <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;
+    showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showTz=0&amp;height=300&amp;
+    wkst=1&amp;hl=en&amp;bgcolor=%23999999&amp;src=e6na6dkdvrgjo74tdjjivh0ekc%40group.calendar.google.com&amp;
+    color=%23B1365F&amp;ctz=Asia%2FBangkok"
+            style="border:solid 1px #777" width="300" height="300" frameborder="0" scrolling="no"></iframe>
+
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-padding w3-hide-large">CLOSE</a>
+    <a href="#" onclick="w3_close()" class="w3-padding">EVENTS</a>
+    <a href="#popular" onclick="w3_close()" class="w3-padding">POPULAR EVENT</a>
+    <a href="#promotion" onclick="w3_close()" class="w3-padding">PROMOTIONS</a>
+</nav>
+
+
+<!-- Overlay effect when opening sidenav on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+
+<!-- Links (sit on top) -->
+<div class="w3-top">
+    <div class="w3-row w3-padding w3-black">
+
+        <div class="w3-col" style="width:25%">
+            <a id="homepage" class="w3-btn-block w3-hover-white">HOME</a>
+        </div>
+        <div class="w3-col" style="width:25%" onclick="w3_open1()">
+            <a href="events.html" class="w3-btn-block w3-hover-white" >EVENT</a>
+        </div>
+        <div class="w3-col" style="width:25%">
+            <a href="FindBook.html" class="w3-btn-block w3-hover-white">FIND A BOOK</a>
+        </div>
+        <div class="w3-col" style="width:25%">
+            <a id="plan" class="w3-btn-block w3-hover-white">PLAN TO VISIT</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+
+    <!-- Push down content on small screens -->
+    <div class="w3-hide-large" style="margin-top:83px"></div>
+
+    <div class="w3-white w3-xlarge w3-padding-xlarge" style="max-width:1200px;margin:auto">
+        <div class="w3-center">EVENTS</div>
+    </div>
+
+    <!-- First Photo Grid-->
+    <div class="w3-row-padding w3-padding-16 w3-center">
+        <div class="w3-quarter">
+            <p><a class="hovertext" href="#" title="December 19th">
+                <img src="1.png" onclick="onClick(this)"
+                     alt="ICED DRINK 8 MENUS <br> 19th December <br> สอนชงเครื่องดื่ม 8 เมนู " style="width:100%"></a></p>
+            <h3> Iced drink 8 menus </h3>
+            <p> สอนชงเครื่องดื่ม 8 เมนู </p>
+        </div>
+        <div class="w3-quarter">
+            <p><a class="hovertext" href="#" title="December 20th">
+                <img src="2.png" onclick="onClick(this)"
+                     alt="RED VELVET SOFT COOKIE <br> 20th December <br> คุ้กกี้แบบนิ่ม หน้าตาน่าเอ็นดู สีกำมะหยี่แดง สอดไส้ด้วยแมคคาเดเมียจัดเต็มและไวท์ชอคชิ้นโต อบร้อนๆ กัดแล้วนุ่มทุกคำ ใครจะเวฟทานอุ่นๆ ก็ยิ่งอร่อย" style="width:100%"></a></p>
+            <h3>Red Velvet Soft Cookie</h3>
+            <p>คุ้กกี้แบบนิ่ม หน้าตาน่าเอ็นดู สีกำมะหยี่แดง สอดไส้ด้วยแมคคาเดเมียจัดเต็มและไวท์ชอคชิ้นโต อบร้อนๆ กัดแล้วนุ่มทุกคำ</p>
+        </div>
+        <div class="w3-quarter">
+            <p><a class="hovertext" href="#" title="December 22th">
+                <img src="3.png" onclick="onClick(this)"
+                     alt="S'MORE COOKIE <br> 12th December <br> คุ้กกี้แบบกรอบสไตล์อเมริกันที่แอบ chewy นิดๆ ตรงกลาง ด้วย dark choc และ mashmellow ตกแต่งด้วยชอคโกแลตซอส อร่อยจนหยุดไม่ได้" style="width:100%"></a></p>
+            <h3>S'MORE Cookie</h3>
+            <p>คุ้กกี้แบบกรอบสไตล์อเมริกันที่แอบ chewy นิดๆ ตรงกลาง ด้วย dark choc และ mashmellow</p>
+        </div>
+        <div class="w3-quarter">
+            <p><a class="hovertext" href="#" title="December 24th">
+                <img src="4.png" onclick="onClick(this)"
+                     alt="ROYCE <br> 24th December <br> ทำดาร์คชอคโกแลตแบบละลายนุ่มละลายในปากได้เอง" style="width:100%"></a></p>
+            <h3>ROYCE</h3>
+            <p>ดาร์คชอคโกแลตแบบละลายนุ่มละลายในปาก</p>
+        </div>
+    </div>
+
+    <div class="w3-row-padding w3-padding-16 w3-center">
+        <div class="w3-quarter">
+            <p><a class="hovertext" href="#" title="December 25th">
+                <img src="5.png" onclick="onClick(this)"
+                     alt="RASPBERRY LAVA <br> 25th December <br> ช็อคลาว่ายอดฮิต แต่คราวนี้ไหลออกมาเป็นสีแดงรส Raspberry นักเรียนทำขายบอกว่ารสนี้น่ะขายดีอันดับหนึ่งเลย" style="width:100%"></a></p>
+            <h3>Raspberry Lava</h3>
+            <p>ช็อคลาว่ายอดฮิต แต่คราวนี้ไหลออกมาเป็นสีแดงรส Raspberry</p>
+        </div>
+        <div class="w3-quarter">
+            <p><a class="hovertext" href="#" title="December 28th">
+                <img src="6.png" onclick="onClick(this)"
+                     alt="Babe & Todd's Food for Finnnn...<br> 28th December <br> เพื่อให้เนื้อหาและสาระ อีกทั้งวิธีการในการทำอาหารและของว่างสำหรับลูกน้อยตั้งแต่วัย 6 เดือน" style="width:100%"></a></p>
+            <h3>Babe & Todd's Food for Finnnn...</h3>
+            <p>เพื่อให้เนื้อหาและสาระ อีกทั้งวิธีการในการทำอาหารและของว่างสำหรับลูกน้อยตั้งแต่วัย 6 เดือน</p>
+        </div>
+        <div class="w3-quarter">
+            <p><a class="hovertext" href="#" title="December 31st">
+                <img src="7.png" onclick="onClick(this)"
+                     alt="HOW TO WIN AMERICA <br> 31st December <br> BY PRESIDENT-ELECT DONALD TRUMP" style="width:100%"></a></p>
+            <h3>HOW TO WIN AMERICA</h3>
+            <p>BY PRESIDENT-ELECT DONALD TRUMP</p>
+        </div>
+        <div class="w3-quarter">
+            <p><a class="hovertext" href="#" title="January 1st">
+                <img src="9.png" onclick="onClick(this)"
+                     alt="HOW TO DEAL WITH DISAPPOINTMENT <br> 1st January <br>  BY CLOSED TO BE PRESIDENT, HILLARY CLINTON" style="width:100%"></a></p>
+            <h3>HOW TO DEAL WITH DISAPPOINTMENT</h3>
+            <p>BY CLOSED TO BE PRESIDENT, HILLARY CLINTON</p>
+        </div>
+    </div>
+
+
+    <!-- Pagination -->
+    <div class="w3-center w3-padding-32">
+        <ul class="w3-pagination">
+            <li><a class="w3-black" href="#">1</a></li>
+            <li><a class="w3-hover-black" href="#">»</a></li>
+        </ul>
+    </div>
+
+    <!-- Modal for full size images on click-->
+    <div id="modal01" class="w3-modal w3-black w3-padding-0" onclick="this.style.display='none'">
+        <span class="w3-closebtn w3-text-white w3-opacity w3-hover-opacity-off w3-xxlarge w3-container w3-display-topright">×</span>
+        <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+            <img id="img01" class="w3-image">
+            <p id="caption"></p>
+            <button class="w3-btn w3-light-grey w3-padding-large w3-margin-top w3-margin-bottom w3-hover-black">MORE DETAILS</button>
+        </div>
+    </div>
+
+    <!-- Popular section -->
+    <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="popular">
+        <h4><b>POPULAR EVENT</b></h4>
+        <img src="5.png" alt="5" class="w3-image w3-padding-32" width="600" height="650">
+        <div class="w3-content w3-justify" style="max-width:600px">
+            <h4>Raspberry Lava WORKSHOP</h4>
+            <p> December 20th, 2016
+                ช็อคลาวายอดฮิต แต่คราวนี้ไหลออกมาเป็นสีแดงรส Raspberry ใครบอกทำยาก ทำเป็นแบบง่ายๆภายใน 3 ชั่วโมง
+                เรียนกับเจ้าของร้านขนมที่เปิดมาแล้วกว่า 3 ปี! ที่นั่งมีจำนวนจำกัด!
+            </p>
+            <p>TICKET RESERVATION</p>
+            <p>TEL: 1112</p>
+            <hr class="w3-opacity">
+            <h4 class="w3-padding-16">DETAILS</h4>
+            <p class="w3-wide">AVAILABLE SEATS</p>
+            <div class="w3-progress-container">
+                <div class="w3-progressbar" style="width:95%"></div>
+            </div>
+            <p class="w3-wide">BAKING SKILLS NEEDED</p>
+            <div class="w3-progress-container">
+                <div class="w3-progressbar" style="width:100%"></div>
+            </div>
+            <button class="w3-btn w3-light-grey w3-padding-large w3-margin-top w3-margin-bottom w3-hover-black">MORE DETAILS</button>
+            <hr class="w3-opacity">
+
+            <h4 class="w3-padding-16">TICKET PRICE</h4>
+            <div class="w3-row-padding" style="margin:0 -16px">
+                <div class="w3-half w3-margin-bottom">
+                    <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
+                        <li class="w3-black w3-xlarge w3-padding-32">EARLY BIRD</li>
+                        <li class="w3-padding-16">Cooking Equipment</li>
+                        <li class="w3-padding-16">Free 1 photograph</li>
+                        <li class="w3-padding-16">Bring your dish home</li>
+                        <li class="w3-padding-16">10% discount for the next event</li>
+                        <li class="w3-padding-16">
+                            <h2>199</h2>
+                            <span class="w3-opacity">BAHT</span>
+                        </li>
+                        <li class="w3-light-grey w3-padding-24">
+                            <button class="w3-btn w3-white w3-padding-large w3-hover-black">BUY NOW</button>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="w3-half">
+                    <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
+                        <li class="w3-black w3-xlarge w3-padding-32">PREMIUM</li>
+                        <li class="w3-padding-16">Cooking Equipment</li>
+                        <li class="w3-padding-16">Free 2 photographs</li>
+                        <li class="w3-padding-16">Bring your dish home + Free 1 drink</li>
+                        <li class="w3-padding-16">10% discount for the next events</li>
+                        <li class="w3-padding-16">
+                            <h2>299</h2>
+                            <span class="w3-opacity">Baht</span>
+                        </li>
+                        <li class="w3-light-grey w3-padding-24">
+                            <button class="w3-btn w3-white w3-padding-large w3-hover-black">BUY NOW</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Promotion section -->
+    <div class="w3-container w3-light-grey w3-padding-32 w3-padding-large" id="promotion">
+        <div class="w3-content" style="max-width:600px">
+            <h4 class="w3-center"><b>PROMOTIONS</b></h4>
+            <p>No promotions available. Let us contact you as soon as we have one!</p>
+
+            <div class="w3-group">
+                <label>Email</label>
+                <label>
+                    <input class="w3-input w3-border" type="text" name="Email" required>
+                </label>
+            </div>
+            <button type="submit" class="w3-btn-block w3-padding-large w3-black w3-margin-bottom">SUBMIT</button>
+
+        </div>
+    </div>
+
+    <!-- End page content -->
+</div>
+
+
+<script>
+
+    var i =1;
+
+
+    function add() {
+        i=i+1;
+    }
+    document.getElementById("month").innerHTML = "DECEMBER";
+
+    function w3_open1() {
+        document.getElementById("mySidenav").style.display = "block";
+    }
+
+    function w3_close1() {
+        document.getElementById("mySidenav").style.display = "none";
+    }
+
+    // Script to open and close sidenav
+    function w3_open() {
+        document.getElementById("mySidenav").style.display = "block";
+        document.getElementById("myOverlay").style.display = "block";
+    }
+
+    function w3_close() {
+        document.getElementById("mySidenav").style.display = "none";
+        document.getElementById("myOverlay").style.display = "none";
+    }
+
+
+    // Modal Image Gallery
+    function onClick(element) {
+        document.getElementById("img01").src = element.src;
+        document.getElementById("modal01").style.display = "block";
+        var captionText = document.getElementById("caption");
+        captionText.innerHTML = element.alt;
+    }
+
+</script>
+
+
+</body>
+</html>
+
