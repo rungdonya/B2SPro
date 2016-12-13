@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+<style>
+    body, html {
+        height: 100%;
+        font-family: "Inconsolata", sans-serif;
+    }
+    .bgimg {
+        background-position: center;
+        background-size: cover;
+        background-image: url("photo.jpg");
+        min-height: 75%;
+    }
+    .menu {
+        display: none;
+    }
+    .floating-box {
+        float: center;
+        width: 350px;
+        height: 183px;
+        margin: 10px;
+        border: 3px solid white;
+        font-size: 20px;
+    }
+
+
+
+    div.img {
+
+
+    }
+    .responsive {
+        margin-left:15px ;
+        overflow-wrap: normal;
+        width: 24.99999%;
+
+    }
+    div.desc {
+
+        text-align: center;
+        width : 350px;
+        height : 128px;
+        color : white;
+
+    }
+
+    * {
+        box-sizing: content-box;
+    }
+
+    .mySlides {display:none;}
+
+</style>
+<body>
+
+<!-- Links (sit on top) -->
+<div class="w3-top">
+    <div class="w3-row w3-padding w3-black">
+
+        <div class="w3-col" style="width:25%">
+            <a id="home.html" class="w3-btn-block w3-hover-white">HOME</a>
+        </div>
+        <div class="w3-col" style="width:25%" onclick="w3_open1()">
+            <a href="events.html" class="w3-btn-block w3-hover-white" >EVENT</a>
+        </div>
+        <div class="w3-col" style="width:25%">
+            <a href="FindBook.html" class="w3-btn-block w3-hover-white">FIND A BOOK</a>
+        </div>
+        <div class="w3-col" style="width:25%">
+            <a id="directory.html" class="w3-btn-block w3-hover-white">PLAN TO VISIT</a>
+        </div>
+    </div>
+</div>
+
+<!-- Header with image -->
+<header class="bgimg w3-display-container w3-grayscale-min" id="homepage">
+    <div class="w3-display-bottomleft w3-center w3-padding-xlarge w3-hide-small">
+        <span class="w3-tag">Open from am to 5pm</span>
+    </div>
+    <div class="w3-display-middle w3-center">
+
+    </div>
+    <div class="w3-display-bottomright w3-center w3-padding-xlarge">
+        <span class="w3-text-white">15 Adr street, 5015</span>
+    </div>
+</header>
+
+<!-- tammm -->
+<div class="w3-content w3-section " style="max-width:500px ">
+
+    <img class="mySlides" src="11.jpg" style="width:100%">
+    <img class="mySlides" src="22.jpg" style="width:100%">
+    <img class="mySlides" src="33.jpg" style="width:100%">
+
+</div>
+<script>
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        myIndex++;
+        if (myIndex > x.length) {myIndex = 1}
+        x[myIndex-1].style.display = "block";
+        setTimeout(carousel, 1000); // Change image every 2 seconds
+    }
+</script>
+
+</div>
+
+<div class="w3-row" id="home">
+    <div class="w3-col s4 w3-grey w3-center w3-padding-8">
+        <div class="floating-box">CO WORKING<br>FREE SPACE AVAILABLE
+            <span style="font-size:50px"><br>10</span>
+        </div>
+
+        <div class="floating-box">MEETING ROOM<br>AVAILABLE TIME
+            <span style="font-size:35px"><br>10.00 AM - 9.00 PM</span></div>
+
+    </div>
+
+    <div class="w3-col s4 w3-dark-grey w3-center w3-padding-8 ">
+        <div class="w3-text-white" style="font-size:50px">EVENT</div>
+        <div class="responsive">
+            <div class="img">
+                <a target="_blank">
+                    <img src="8.png" style="margin: auto" width="350" height="200">
+                </a>
+                <div class="desc">HOW TO BECOME A PRESIDENT
+                    17th December
+                    BY MR.PRESIDENT BARACK OBAMA</div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="w3-col s4 w3-grey w3-center w3-padding-8 ">
+        <div class="w3-text-white" style="font-size:50px">NEWS</div>
+        <div class="responsive">
+            <div class="img">
+                <a target="_blank">
+                    <img src="1.jpg" style="margin: auto" width="350" height="200">
+                </a>
+                <div class="desc">Because ideas blossom anywhere
+                    From books and music to anyone you meet,
+                    join our space, THINK SPACE B2S, to find your love, inspiration and new ideas.</div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="w3-container w3-black">
+        <h5>CONTACT US</h5>
+        <p>Address : Central Festival Eastville Bangkok, Thailand 10230<br>Phone : 02 655 6179<br></p>
+    </div>
+
+</div>
+
+<div class="w3-container w3-black">
+    <h5>CONTACT US</h5>
+    <p>Address : Central Festival Eastville Bangkok, Thailand 10230<br>Phone : 02 655 6179<br></p>
+</div>
+
+</body>
+</html>
